@@ -36,6 +36,16 @@ class RouteServiceProvider extends ServiceProvider
             Route::middleware('web')
                 ->group(base_path('routes/web.php'));
         });
+
+        /**
+         * Load Src routes
+         */
+        foreach (\File::allFiles(base_path("src/**/Infrastructure/routes")) as $routeFile) {
+            $type = explode(".", $routeFile->getBasename())[0];
+            Route::prefix($type)
+                ->middleware($type)
+                ->group($routeFile->getRealPath());
+        }
     }
 
     /**

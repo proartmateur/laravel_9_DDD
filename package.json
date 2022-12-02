@@ -2,13 +2,16 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "component": "node ./generators/componentDirs.js"
     },
     "devDependencies": {
         "axios": "^1.1.2",
+        "i": "^0.3.7",
         "laravel-vite-plugin": "^0.7.0",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
+        "prompt-sync": "^4.2.0",
         "vite": "^3.0.0"
     }
 }
